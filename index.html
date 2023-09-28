@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Meridol is beste</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body>
+
+<br>
+    <div id="button-container">
+<img src="pic_01.jpg"></div>
+<div id="button-container">
+    <h1> meridol is beste</h1>
+</div>
+<br>
+<br>
+<br>
+<!-- Container, um die Buttons zu zentrieren -->
+<div id="button-container">
+    <!-- Die Buttons -->
+    <button id="zustimmen-button">zustimmen</button>
+    <button id="ablehnen-button">ablehnen</button>
+</div>
+
+<!-- Bestätigungspopup -->
+<div id="bestaetigung-popup">
+    <h3 id="schliessen-button">X</h3>
+    <h1 id="bestaetigung-text" style="color: #fff;">Nice!!! </h1><br>
+    
+    
+    
+</div>
+
+<script>
+    // JavaScript, um die Aktionen zu steuern
+    const zustimmenButton = document.getElementById('zustimmen-button');
+    const ablehnenButton = document.getElementById('ablehnen-button');
+    const bestaetigungPopup = document.getElementById('bestaetigung-popup');
+    const bestaetigungText = document.getElementById('bestaetigung-text');
+    const schliessenButton = document.getElementById('schliessen-button');
+
+
+    zustimmenButton.addEventListener('click', () => {
+        bestaetigungText.textContent = 'Nice';
+        bestaetigungPopup.style.display = 'flex';
+    });
+
+    ablehnenButton.addEventListener('click', () => {
+        // Zufällige Verschiebung des "Ablehnen" Buttons
+        const maxX = window.innerWidth - ablehnenButton.clientWidth;
+        const maxY = window.innerHeight - ablehnenButton.clientHeight;
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        ablehnenButton.style.position = 'absolute';
+        ablehnenButton.style.left = randomX + 'px';
+        ablehnenButton.style.top = randomY + 'px';
+    });
+
+    schliessenButton.addEventListener('click', () => {
+        bestaetigungPopup.style.display = 'none';
+    });
+
+</script>
+
+</body>
+</html>
