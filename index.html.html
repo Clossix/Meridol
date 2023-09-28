@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bestätigungspopup</title>
+    <style>
+        /* Stil für den Container, um die Buttons zu zentrieren */
+        *{
+            font-family: avenir;
+        }
+        
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+        button{
+            margin: 0rem 1rem;
+            padding: 1rem 2rem 1rem 2rem;
+            border-radius: 30px;
+            box-shadow: 2px 3px 5px #3347c966;
+            border: none;
+        }
+        button:hover{
+            background-color: #3347c966;
+            color: #fff;
+        }
+        /* Stil für das Bestätigungspopup */
+        #bestaetigung-popup {
+            display: none;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            border-radius: 20px;
+            top: 50%;
+            left: 50%;
+            height: 40vh;
+            width: 40vw;
+            transform: translate(-50%, -50%);
+            background-image:url(giphy.gif);
+            background-size: cover;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        img{
+            margin-top: 10vh;
+            height: 40vh;
+        }
+
+
+
+        @media only screen and (max-width: 800px) {
+        #bestaetigung-popup {
+            display: none;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            border-radius: 20px;
+            top: 50%;
+            left: 50%;
+            height: 20vh;
+            width: 80vw;
+            transform: translate(-50%, -50%);
+            background-image:url(giphy.gif);
+            background-size: cover;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        button{
+            margin: 0rem 0.5rem;
+        }
+        
+        }
+
+
+    </style>
+</head>
+<body>
+
+<br>
+    <div id="button-container">
+<img src="pic_01.jpg"></div>
+<div id="button-container">
+    <h1> meridol is beste</h1>
+</div>
+<br>
+<br>
+<br>
+<!-- Container, um die Buttons zu zentrieren -->
+<div id="button-container">
+    <!-- Die Buttons -->
+    <button id="zustimmen-button">zustimmen</button>
+    <button id="ablehnen-button">ablehnen</button>
+</div>
+
+<!-- Bestätigungspopup -->
+<div id="bestaetigung-popup">
+    <h1 id="bestaetigung-text" style="color: #fff;">Nice!!! </h1><br>
+    
+    
+    
+</div>
+
+<script>
+    // JavaScript, um die Aktionen zu steuern
+    const zustimmenButton = document.getElementById('zustimmen-button');
+    const ablehnenButton = document.getElementById('ablehnen-button');
+    const bestaetigungPopup = document.getElementById('bestaetigung-popup');
+    const bestaetigungText = document.getElementById('bestaetigung-text');
+
+
+    zustimmenButton.addEventListener('click', () => {
+        bestaetigungText.textContent = 'Nice';
+        bestaetigungPopup.style.display = 'flex';
+    });
+
+    ablehnenButton.addEventListener('click', () => {
+        // Zufällige Verschiebung des "Ablehnen" Buttons
+        const maxX = window.innerWidth - ablehnenButton.clientWidth;
+        const maxY = window.innerHeight - ablehnenButton.clientHeight;
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        ablehnenButton.style.position = 'absolute';
+        ablehnenButton.style.left = randomX + 'px';
+        ablehnenButton.style.top = randomY + 'px';
+    });
+
+
+</script>
+
+</body>
+</html>
